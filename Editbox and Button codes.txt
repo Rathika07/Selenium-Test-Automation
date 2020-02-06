@@ -1,0 +1,77 @@
+package finaltest;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Final_Tests {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		System.setProperty("webdriver.chrome.driver", "G:\\Selenium\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://leafground.com/home.html");
+		
+		WebElement edithome=driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[1]/a"));
+		edithome.click();
+		
+		WebElement email=driver.findElement(By.id("email"));
+		email.sendKeys("shejashree.07@gmail.com");
+		
+		WebElement append=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[2]/div/div/input"));
+		append.sendKeys("is a key");
+		
+		WebElement gettext=driver.findElement(By.name("username"));
+		String text=gettext.getAttribute("value");
+		System.out.println("Text is: "+text);
+		
+		WebElement clear=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[4]/div/div/input"));
+		clear.clear();
+		
+		WebElement enable=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[5]/div/div/input"));
+		boolean enable1=enable.isEnabled();
+		System.out.println("Condition: "+enable1);
+		
+		WebElement home=driver.findElement(By.xpath("//*[@id=\"text-2\"]/a/img"));
+		home.click();
+
+		//button
+		
+		WebElement button=driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[2]/a"));
+		button.click();
+		
+		WebElement postion=driver.findElement(By.id("position"));
+		int xvalue=postion.getLocation().getX();
+		System.out.println("x value is: "+xvalue);
+		int yvalue=postion.getLocation().getY();
+		System.out.println("y value is: "+yvalue);
+		
+		WebElement color=driver.findElement(By.id("color"));
+		String colorvalue=color.getCssValue("background-color");
+		System.out.println("Color: "+colorvalue);
+		
+		WebElement size=driver.findElement(By.id("size"));
+		int height=size.getSize().getHeight();
+		System.out.println("Height is: "+height);
+		int width=size.getSize().getWidth();
+		System.out.println("width is: "+width);
+		
+		WebElement home2=driver.findElement(By.xpath("//*[@id=\"text-2\"]/a"));
+		home2.click();
+		
+		//hyperlink
+		
+		WebElement link=driver.findElement(By.xpath("//*[@id=\"post-153\"]/div[2]/div/ul/li[3]/a"));
+		link.click();
+		
+		WebElement href1=driver.findElement(By.xpath("//*[@id=\"contentblock\"]/section/div[2]/div/div/a"));
+		String linktext=href1.getAttribute("href");
+		System.out.println("link: "+linktext);
+		
+		
+	}
+
+}
